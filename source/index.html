@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#111a32">
+<title>MONSTER LAB — 폭주진화</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <div id="ambient"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+  <div id="lobby" class="screen">
+    <header class="topbar glass">
+      <div class="profile"><div class="portrait">✦</div><div><b>MONSTER LAB</b><small>Lv. <span id="playerLevel">1</span> · 몬스터 연구소</small></div></div>
+      <button id="audioBtn" class="icon-btn" title="효과음">♫</button>
+    </header>
+    <div class="currency-bar">
+      <div class="pill">🟡 <span id="goldVal">0</span></div><div class="pill">💎 <span id="gemVal">0</span></div><div class="pill">✦ <span id="shardVal">0</span></div>
+    </div>
+    <main id="lobbyMain" class="lobby-main"></main>
+    <nav class="bottom-nav glass" aria-label="메인 메뉴">
+      <button data-tab="home" class="nav-item active"><span>⌂</span>홈</button>
+      <button data-tab="heroes" class="nav-item"><span>♜</span>내 영웅</button>
+      <button data-tab="shop" class="nav-item"><span>▣</span>상점</button>
+      <button data-tab="gacha" class="nav-item"><span>✧</span>뽑기</button>
+    </nav>
+  </div>
+  <div id="battle" class="screen hidden">
+    <div class="battle-header glass">
+      <div class="battle-row"><button id="exitBattle" class="round-btn">‹</button><div class="battle-wave"><b id="waveText">WAVE 1 / 30</b><small id="battleTime">00:00</small></div><span id="battleMode" class="mode-tag">일반</span></div>
+      <div class="hp-track"><div id="hpFill"></div></div>
+      <div class="battle-stats"><span>♥ <b id="hpText">100</b></span><span>⚡ <b id="energyText">200</b></span><span>✧ <b id="stoneText">0</b></span><span id="allyTag">🤝 AI 동료</span></div>
+      <div id="bossBarWrap" class="boss-wrap hidden"><b id="bossName">보스</b><div class="boss-track"><div id="bossFill"></div></div></div>
+    </div>
+    <div id="battleScene" class="scene-box">
+      <div class="scene-label p1-label">내 몬스터</div><div class="scene-label p2-label">동료 진영</div>
+      <div id="toastBattle" class="toast-battle"></div>
+      <div id="waveStamp" class="wave-stamp"></div>
+      <div id="selectionBubble" class="selection-bubble hidden"></div>
+    </div>
+    <div class="battle-bottom glass">
+      <div class="battle-bars"><div class="gauge-wrap"><span>⚔️ 궁극기</span><div class="gauge"><div id="ultFill"></div></div><b id="ultText">0%</b></div><div class="gauge-wrap"><span>🤝 협동</span><div class="gauge duo"><div id="coopFill"></div></div><b id="coopText">0%</b></div></div>
+      <div class="battle-buttons">
+        <button id="summonBtn" class="action-btn summon"><b>✦ 소환</b><small id="summonCost">에너지 50</small></button>
+        <button id="mergeBtn" class="action-btn merge"><b>⇪ 합성</b><small>동일 영웅 ×2</small></button>
+        <button id="upgradeBtn" class="action-btn upgrade"><b>✧ 마석 강화</b><small>공격력 · 공속</small></button>
+      </div>
+      <div class="battle-buttons second"><button id="ultimateBtn" class="action-btn ultimate"><b>🔥 궁극기</b><small>★3 선택</small></button><button id="coopBtn" class="action-btn cooperate"><b>🤝 협동 융합</b><small>공동 게이지 100</small></button></div>
+      <div class="battle-hint" id="battleHint">빈 칸을 터치해 보거나 소환 버튼을 눌러봐!</div>
+    </div>
+  </div>
+  <div id="modalLayer" class="modal-layer hidden"><div class="modal-backdrop" id="modalBackdrop"></div><div id="modalContent" class="modal glass" role="dialog" aria-modal="true"></div></div>
+  <div id="toast" class="toast"></div>
+</div>
+<script src="webgl.js"></script><script src="app.js"></script>
+</body></html>
